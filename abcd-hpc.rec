@@ -1,0 +1,20 @@
+# FMRIPREP from dcanlabs
+
+BootStrap: docker
+From: dcanlabs/abcd-hcp-pipeline:latest
+
+%runscript
+    exec `which dcan-pipelines` "$@"
+
+%environment
+
+%post
+    #------------------------------------------------------------------------------
+    # Create local binding points for our ICS-ACI
+    #------------------------------------------------------------------------------
+    mkdir -p /storage/home
+    mkdir -p /storage/work
+    mkdir -p /gpfs/scratch
+    mkdir -p /gpfs/group
+    mkdir -p /var/spool/torque
+#
