@@ -4,7 +4,7 @@ BootStrap: docker
 From: dcanlabs/abcd-hcp-pipeline:latest
 
 %runscript
-    exec `which dcan-pipelines` "$@"
+    exec "/entrypoint.sh" "$@"
 
 %environment
 
